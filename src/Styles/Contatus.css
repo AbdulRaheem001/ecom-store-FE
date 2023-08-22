@@ -1,0 +1,61 @@
+/* Styles for the Contact Us form */
+.contatus-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 2%;
+  }
+  
+  .contatus-container .submit-button {
+    margin-top: 20px;
+  }
+  
+  .contatus-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .contatus-container .form-label {
+    font-weight: bold;
+  }
+  
+  /* Styles for the text input fields */
+  .contatus-container .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Styles for the textarea */
+  .contatus-container .form-control textarea {
+    resize: vertical;
+  }
+  
+  /* Styles for the checkbox */
+  .contatus-container .form-check-label {
+    font-weight: normal;
+  }
+  
+  /* Styles for the primary button */
+  .contatus-container .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Styles for the primary button on hover */
+  .contatus-container .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styles for the text-muted paragraph */
+  .contatus-container .text-muted {
+    font-size: 14px;
+    color: #777;
+  }
+  

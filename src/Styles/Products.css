@@ -1,0 +1,169 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    border: 2px solid #333333;
+    width: 280px; /* Adjust the width of each card */
+    background-color: rgb(202, 202, 202); /* Add any desired background color */
+    border-radius: 10px; /* Add rounded corners */
+    overflow: hidden; /* Hide any content that overflows */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    transition: transform 0.2s ease;
+}
+.card:hover {
+    transform: scale(1.1);
+}
+
+.magnify {
+    transform: scale(1.1);
+}
+.image-container {
+    position: relative;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Maintain image aspect ratio and fill the container */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 2px;
+    font-size: 14px;
+}
+.in-stock {
+    background-color: #00FF00; /* Green color for in-stock items */
+}
+
+.out-of-stock {
+    background-color: #FFFF00; /* Yellow color for out-of-stock items */
+    color: #000000; /* Black text color for better readability */
+}
+.card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+     /* Make the card body take the full height of the card */
+   
+}
+
+.btnAdd {
+    width: 100%;
+    padding: 5px;
+    background-color: #869E86;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;   
+}
+.btdiv{
+    
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+}
+/* CSS for the container holding the filter elements */
+div.filter-container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  /* CSS for the "Filter" text */
+  div.filter-container samp {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  /* CSS for the select dropdown */
+  div.filter-container select {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .view-card-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #f10e3c;
+  }
+  .viewCart{
+    background-color: #869E86;
+    color: #fff;
+    margin-left: 80%;
+    border-radius: 5px;
+    font-size: 16px;
+    
+  }
+@media (max-width: 1024px) {
+    .card {
+        flex-basis: calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-basis: calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex-basis: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+}
+
+
+/* Center the content */
+.explore-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Style for the "Explore New Arrivals" heading */
+  .explore-heading {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the "Shop now" link */
+  .shop-now-link {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Add hover effect to the "Shop now" link */
+  .shop-now-link:hover {
+    background-color: #0056b3;
+  }
+  

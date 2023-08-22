@@ -1,0 +1,84 @@
+nav {
+    background-color: #333;
+    padding: 10px;
+    position:static;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+  
+  .nav-item {
+    margin: 0 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-link:hover {
+    background-color: #555;
+  }
+  /* Add styles for the menu button */
+  .menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+  }
+  .nav-link.active {
+  font-weight: bold;
+}
+  .menu-button::before,
+  .menu-button::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .menu-button::before {
+    transform: ${isMenuOpen ? 'rotate(45deg)' : 'none'};
+  }
+  
+  .menu-button::after {
+    transform: ${isMenuOpen ? 'rotate(-45deg)' : 'none'};
+  }
+
+/* Show the menu button on small screens */
+@media (max-width: 468px) {
+  .menu-button {
+    display: block;
+  }
+
+  /* Hide the nav-list by default on small screens */
+  .nav-list {
+    display: none;
+  }
+
+  /* Show the nav-list when the menu button is clicked */
+  .nav-list.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+ 
+  

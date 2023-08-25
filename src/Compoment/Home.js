@@ -26,7 +26,7 @@ const Home = () => {
           <h1 className="hero-title">Welcome to Our Website</h1>
           <p className="hero-subtitle">Discover the Best Products for You</p>
           <Link
-            to={isLoggedIn ? `/products` : "/signin"}
+            to={isLoggedIn ? `/products` : "/signup"}
             className="shop-now-link"
           >
             Sign-Up
@@ -54,12 +54,12 @@ const Home = () => {
                 />
                 <p
                   className={`overlay-text ${
-                    product.stockStatus === "in-stock"
+                    product.stock === "in-stock"
                       ? "in-stock"
                       : "out-of-stock"
                   }`}
                 >
-                  {product.stockStatus === "in-stock"
+                  {product.stock === "in-stock"
                     ? "IN STOCK"
                     : "OUT OF STOCK"}
                 </p>

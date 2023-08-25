@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "../Styles/AddProduct.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
+import Shop_nave from"./ShopKeeper_NaveBar";
+import { useSelector } from "react-redux";
 function AddProduct() {
+  const userData = useSelector((state) => {
+    return state.shopKeeper;
+  });
   const [imageFile,setimageFile]=useState()
   const [productData, setProductData] = useState({
     name: "",
@@ -11,6 +16,7 @@ function AddProduct() {
     actualPrice: 0,
     discountPrice: 0,
     discountPercentage: 0,
+    catagory:"",
     image: null,
   });
 
@@ -39,6 +45,8 @@ function AddProduct() {
     formData.append("stock", productData.stock);
     formData.append("actualPrice", productData.actualPrice);
     formData.append("discountPrice", productData.discountPrice);
+    formData.append("catagory", productData.catagory)
+    formData.append("storeName", userData.StoreName)
     formData.append("discountPercentage", productData.discountPercentage);
     
     // Append the image file from state
@@ -65,7 +73,10 @@ function AddProduct() {
     
 
   return (
+    <>
+    <Shop_nave/>
     <div className="Main-Con">
+
       <center>
         <h2>Add Product</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -132,6 +143,23 @@ function AddProduct() {
             />
           </div>
           <div>
+            <label>Catagory:</label>
+            <select
+              name="catagory"
+              value={productData.catagory}
+              onChange={handleChange}
+              required
+              className="stock-select"
+            >
+              <option value="accessories">Accessories</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="sport">Sports</option>
+              <option value="mobile">Mobile</option>
+              <option value="laptop">Laptop</option>
+              <option value="electronic">Electronic</option>
+            </select>
+          </div>
+          <div>
             <label>Image:</label>
             <input
               type="file"
@@ -145,6 +173,7 @@ function AddProduct() {
         </form>
       </center>
     </div>
+    </>
   );
 }
 

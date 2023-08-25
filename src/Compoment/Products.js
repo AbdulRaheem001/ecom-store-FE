@@ -22,13 +22,13 @@ const Products = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = (product) => {
-    if (product.stockStatus !== "out-of-stock") {
+    if (product.stock !== "out-of-stock") {
       dispatchRed(addItem(product));
     }
   };
 
   const handleViewCart = (item) => {
-    if (item.stockStatus === "in-stock") {
+    if (item.stock === "in-stock") {
       dispatchRed(addItem(item));
       navigate("/cart");
     }
@@ -83,7 +83,7 @@ const Products = () => {
 
       <div className="card-container" style={{ backgroundColor: "lightgray" }}>
         {productData.map((product) => (
-          <div key={product.id} className={`card ${product.stockStatus}`}>
+          <div key={product.id} className={`card ${product.stock}`}>
             <Link
               to={`/products/${product.id}`}
               key={product.id}
@@ -97,12 +97,12 @@ const Products = () => {
                 />
                 <p
                   className={`overlay-text ${
-                    product.stockStatus === "in-stock"
+                    product.stock === "in-stock"
                       ? "in-stock"
                       : "out-of-stock"
                   }`}
                 >
-                  {product.stockStatus === "in-stock"
+                  {product.stock === "in-stock"
                     ? "IN STOCK"
                     : "OUT OF STOCK"}
                 </p>
@@ -127,16 +127,16 @@ const Products = () => {
             <div className="btdiv">
               <button
                 className={`btnAdd ${
-                  product.stockStatus === "out-of-stock"
+                  product.stock === "out-of-stock"
                     ? "out-of-stock-button"
                     : ""
                 }`}
                 onClick={() => handleButtonClick(product)}
                 style={{
                   backgroundColor:
-                    product.stockStatus === "out-of-stock" ? "red" : "#869E86",
+                    product.stock === "out-of-stock" ? "red" : "#869E86",
                 }}
-                disabled={product.stockStatus === "out-of-stock"}
+                disabled={product.stock === "out-of-stock"}
               >
                 Add To Cart <FontAwesomeIcon icon={faCartPlus} />
               </button>

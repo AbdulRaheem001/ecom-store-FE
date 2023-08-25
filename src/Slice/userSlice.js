@@ -2,7 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
   name: "users",
-  initialState: { items: [], total: 0, loginState: false, userType: "" },
+  initialState: {
+    items: [],
+    total: 0,
+    loginState: false,
+    userType: "",
+    Email: "",
+    Status:false,
+    StoreExist: false,
+  },
   reducers: {
     addItem(state, action) {
       const newItem = action.payload;
@@ -44,8 +52,17 @@ const userSlice = createSlice({
     setUserType(state, action) {
       state.userType = action.payload;
     },
+    setUserEmail(state,action){
+      state.Email=action.payload
+    },
+    setStatus(state,action){
+      state.Status=action.payload
+    },
+    setStoreExist(state,action){
+      state.StoreExist=action.payload
+    }
   },
 });
 export default userSlice;
-export const { addItem, removeItem, setQuantity, setLoginState } =
+export const { addItem, removeItem, setQuantity, setLoginState,setUserType,setUserEmail,setStatus,setStoreExist } =
   userSlice.actions;

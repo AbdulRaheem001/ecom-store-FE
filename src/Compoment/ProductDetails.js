@@ -30,7 +30,7 @@ function ProductDetails() {
           <p className="description">{selectedProduct.description}</p>
           <p className="price">Price: ${selectedProduct.price.toFixed(2)}</p>
           <p className="discount">Discount: {selectedProduct.discount}%</p>
-          <p className="stock-status">Stock Status: {selectedProduct.stockStatus}</p>
+          <p className="stock-status">Stock Status: {selectedProduct.stock}</p>
           <button className="checkout-button">Check Out</button>
         </div>
     </div>

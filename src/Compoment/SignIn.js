@@ -12,7 +12,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { setLoginState } from "../Slice/userSlice";
+import { setLoginState,setUserType,setUserEmail,setStatus,setStoreExist } from "../Slice/userSlice";
+import { setShopKeeperEmail } from "../Slice/ShopkeeperSlice";
 function SignIn() {
   
   const [showPassword, setShowPassword] = useState(false); 
@@ -47,15 +48,36 @@ function SignIn() {
       })
       .then((res) => {
         dispatch(setLoginState(true));
-        const { token, userType } = res?.data;
+        const { token, userType, Email, Status,StoreExist } = res?.data;
         console.log(userType);
         dispatch(setUserType(userType));
-        sessionStorage.setItem("isLoggedIn", "true");
+        dispatch(setUserEmail(Email));
+        dispatch(setStatus(Status));
+        dispatch(setStoreExist(StoreExist));
+        dispatch(setShopKeeperEmail(Email));
+        sessionStorage.setItem("isLoggedIn", true,"userType",userType,"Email",Email,"Status",Status);
         sessionStorage.setItem(
           "userToken",
           JSON.stringify(token)
         );
+        console.log("Status " ,Status);
+        if(userType=="customer"){
         navigate("/products");
+        }
+        else if (userType=="shopKeeper"){
+          if(!StoreExist)
+          navigate("/registerStore");
+        
+        else if(!Status){
+          navigate("/registerMassege");
+        }
+        else{
+          navigate("/ShopKeeper_Home");
+        }
+      }
+      else if(userType=="manager"){
+        navigate("/manageStore");
+      }
       })
       .catch((err) => {
         toast.error(err.response.data);
